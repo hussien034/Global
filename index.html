@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlobalBridge - Connecting Youth to Opportunities</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#" onclick="showPage('landing')">
+                <i class="fas fa-globe-americas me-2"></i>GlobalBridge
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('landing')">Home</a>
+                    </li>
+                    <li class="nav-item" id="jobs-nav" style="display: none;">
+                        <a class="nav-link" href="#" onclick="showPage('jobs')">Jobs</a>
+                    </li>
+                    <li class="nav-item" id="trainings-nav" style="display: none;">
+                        <a class="nav-link" href="#" onclick="showPage('trainings')">Trainings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('partnerships')">Partnerships</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item" id="login-nav">
+                        <a class="nav-link" href="#" onclick="showPage('login')">
+                            <i class="fas fa-sign-in-alt me-1"></i>Login
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown" id="user-nav" style="display: none;">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user me-1"></i><span id="user-name"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" onclick="showDashboard()">Dashboard</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" onclick="logout()">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Landing Page -->
+        <div id="landing-page" class="page">
+            <!-- Hero Section -->
+            <section class="hero-section bg-gradient text-white py-5">
+                <div class="container">
+                    <div class="row align-items-center min-vh-100">
+                        <div class="col-lg-6">
+                            <h1 class="display-4 fw-bold mb-4">Connecting Arab Youth to Global Opportunities</h1>
+                            <p class="lead mb-4">Discover jobs, internships, and training programs tailored for young professionals in Egypt and the Arab world.</p>
+                            <div class="d-flex gap-3">
+                                <button class="btn btn-light btn-lg" onclick="showPage('login')">
+                                    <i class="fab fa-google me-2"></i>Get Started
+                                </button>
+                                <button class="btn btn-outline-light btn-lg" onclick="showPage('partnerships')">
+                                    Learn More
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <img src="/placeholder.svg?height=400&width=500" 
+                                 alt="Youth collaboration" class="img-fluid rounded shadow">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="py-5">
+                <div class="container">
+                    <div class="row text-center mb-5">
+                        <div class="col-12">
+                            <h2 class="display-5 fw-bold">Why Choose GlobalBridge?</h2>
+                            <p class="lead text-muted">Empowering the next generation of Arab professionals</p>
+                        </div>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center p-4">
+                                    <div class="feature-icon bg-primary text-white rounded-circle mx-auto mb-3">
+                                        <i class="fas fa-briefcase"></i>
+                                    </div>
+                                    <h5 class="card-title">Quality Jobs</h5>
+                                    <p class="card-text">Access to verified job opportunities from leading companies across the region.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center p-4">
+                                    <div class="feature-icon bg-success text-white rounded-circle mx-auto mb-3">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </div>
+                                    <h5 class="card-title">Skill Development</h5>
+                                    <p class="card-text">Professional training programs to enhance your skills and career prospects.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center p-4">
+                                    <div class="feature-icon bg-info text-white rounded-circle mx-auto mb-3">
+                                        <i class="fas fa-network-wired"></i>
+                                    </div>
+                                    <h5 class="card-title">Networking</h5>
+                                    <p class="card-text">Connect with industry professionals and build valuable relationships.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Partners Section -->
+            <section class="py-5 bg-light">
+                <div class="container">
+                    <div class="row text-center mb-4">
+                        <div class="col-12">
+                            <h3 class="fw-bold">Trusted by Leading Organizations</h3>
+                        </div>
+                    </div>
+                    <div class="row align-items-center justify-content-center g-4">
+                        <div class="col-6 col-md-2">
+                            <img src="/placeholder.svg?height=80&width=120" alt="Partner 1" class="img-fluid opacity-75">
+                        </div>
+                        <div class="col-6 col-md-2">
+                            <img src="/placeholder.svg?height=80&width=120" alt="Partner 2" class="img-fluid opacity-75">
+                        </div>
+                        <div class="col-6 col-md-2">
+                            <img src="/placeholder.svg?height=80&width=120" alt="Partner 3" class="img-fluid opacity-75">
+                        </div>
+                        <div class="col-6 col-md-2">
+                            <img src="/placeholder.svg?height=80&width=120" alt="Partner 4" class="img-fluid opacity-75">
+                        </div>
+                        <div class="col-6 col-md-2">
+                            <img src="/placeholder.svg?height=80&width=120" alt="Partner 5" class="img-fluid opacity-75">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Login Page -->
+        <div id="login-page" class="page" style="display: none;">
+            <div class="container">
+                <div class="row justify-content-center align-items-center min-vh-100">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card shadow">
+                            <div class="card-body p-5">
+                                <div class="text-center mb-4">
+                                    <h2 class="fw-bold">Welcome to GlobalBridge</h2>
+                                    <p class="text-muted">Sign in to access opportunities</p>
+                                </div>
+                                
+                                <div id="login-form">
+                                    <button class="btn btn-danger btn-lg w-100 mb-3" onclick="simulateGoogleLogin()">
+                                        <i class="fab fa-google me-2"></i>Continue with Google
+                                    </button>
+                                    <div class="text-center">
+                                        <small class="text-muted">By signing in, you agree to our Terms of Service</small>
+                                    </div>
+                                </div>
+
+                                <div id="role-selection" style="display: none;">
+                                    <h5 class="text-center mb-4">Choose your role:</h5>
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-outline-primary btn-lg" onclick="completeLogin('seeker')">
+                                            <i class="fas fa-user me-2"></i>Job Seeker
+                                        </button>
+                                        <button class="btn btn-outline-success btn-lg" onclick="completeLogin('company')">
+                                            <i class="fas fa-building me-2"></i>Company
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Jobs Page -->
+        <div id="jobs-page" class="page" style="display: none;">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="fw-bold mb-4">Available Jobs</h2>
+                        
+                        <!-- Filters -->
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <select class="form-select" id="job-type-filter">
+                                            <option value="">All Types</option>
+                                            <option value="full-time">Full Time</option>
+                                            <option value="part-time">Part Time</option>
+                                            <option value="internship">Internship</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <select class="form-select" id="job-field-filter">
+                                            <option value="">All Fields</option>
+                                            <option value="technology">Technology</option>
+                                            <option value="finance">Finance</option>
+                                            <option value="marketing">Marketing</option>
+                                            <option value="healthcare">Healthcare</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button class="btn btn-primary" onclick="filterJobs()">
+                                            <i class="fas fa-filter me-1"></i>Apply Filters
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Jobs List -->
+                        <div id="jobs-list" class="row g-4">
+                            <!-- Jobs will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trainings Page -->
+        <div id="trainings-page" class="page" style="display: none;">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="fw-bold mb-4">Training Programs</h2>
+                        <div id="trainings-list" class="row g-4">
+                            <!-- Trainings will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Dashboard -->
+        <div id="user-dashboard" class="page" style="display: none;">
+            <div class="container py-5">
+                <h2 class="fw-bold mb-4">My Dashboard</h2>
+                
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0"><i class="fas fa-briefcase me-2"></i>Applied Jobs</h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="applied-jobs">
+                                    <!-- Applied jobs will be populated -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0"><i class="fas fa-graduation-cap me-2"></i>Enrolled Trainings</h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="enrolled-trainings">
+                                    <!-- Enrolled trainings will be populated -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Company Dashboard -->
+        <div id="company-dashboard" class="page" style="display: none;">
+            <div class="container py-5">
+                <h2 class="fw-bold mb-4">Company Dashboard</h2>
+                
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">Post New Opportunity</h5>
+                            </div>
+                            <div class="card-body">
+                                <form id="post-form">
+                                    <div class="mb-3">
+                                        <label class="form-label">Type</label>
+                                        <select class="form-select" id="post-type" required>
+                                            <option value="job">Job</option>
+                                            <option value="training">Training</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Title</label>
+                                        <input type="text" class="form-control" id="post-title" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Description</label>
+                                        <textarea class="form-control" id="post-description" rows="3" required></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Field</label>
+                                        <select class="form-select" id="post-field" required>
+                                            <option value="technology">Technology</option>
+                                            <option value="finance">Finance</option>
+                                            <option value="marketing">Marketing</option>
+                                            <option value="healthcare">Healthcare</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3" id="job-type-div">
+                                        <label class="form-label">Job Type</label>
+                                        <select class="form-select" id="post-job-type">
+                                            <option value="full-time">Full Time</option>
+                                            <option value="part-time">Part Time</option>
+                                            <option value="internship">Internship</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">Post</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">My Postings & Applicants</h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="company-postings">
+                                    <!-- Company postings will be populated -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Dashboard -->
+        <div id="admin-dashboard" class="page" style="display: none;">
+            <div class="container py-5">
+                <h2 class="fw-bold mb-4">Admin Dashboard</h2>
+                
+                <div class="row g-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <ul class="nav nav-tabs card-header-tabs">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="#" onclick="showAdminTab('users')">Users</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#" onclick="showAdminTab('jobs')">Jobs</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#" onclick="showAdminTab('trainings')">Trainings</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-body">
+                                <div id="admin-users" class="admin-tab">
+                                    <h5>Registered Users</h5>
+                                    <div id="users-list"></div>
+                                </div>
+                                <div id="admin-jobs" class="admin-tab" style="display: none;">
+                                    <h5>All Jobs</h5>
+                                    <div id="admin-jobs-list"></div>
+                                </div>
+                                <div id="admin-trainings" class="admin-tab" style="display: none;">
+                                    <h5>All Trainings</h5>
+                                    <div id="admin-trainings-list"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Partnerships Page -->
+        <div id="partnerships-page" class="page" style="display: none;">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-12 text-center mb-5">
+                        <h2 class="display-5 fw-bold">Our Partners</h2>
+                        <p class="lead">Working together to create opportunities for Arab youth</p>
+                    </div>
+                </div>
+                
+                <div class="row g-4 mb-5">
+                    <div class="col-md-3 text-center">
+                        <img src="/placeholder.svg?height=100&width=150" alt="Tech Partner" class="img-fluid mb-3">
+                        <h5>TechCorp</h5>
+                        <p class="text-muted">Leading technology solutions</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <img src="/placeholder.svg?height=100&width=150" alt="Finance Partner" class="img-fluid mb-3">
+                        <h5>Arab Bank</h5>
+                        <p class="text-muted">Financial services excellence</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <img src="/placeholder.svg?height=100&width=150" alt="Consulting Partner" class="img-fluid mb-3">
+                        <h5>ConsultPro</h5>
+                        <p class="text-muted">Strategic consulting</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <img src="/placeholder.svg?height=100&width=150" alt="Healthcare Partner" class="img-fluid mb-3">
+                        <h5>HealthPlus</h5>
+                        <p class="text-muted">Healthcare innovation</p>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">Become a Partner</h5>
+                            </div>
+                            <div class="card-body">
+                                <form id="partner-form">
+                                    <div class="mb-3">
+                                        <label class="form-label">Company Name</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Contact Email</label>
+                                        <input type="email" class="form-control" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Industry</label>
+                                        <select class="form-select" required>
+                                            <option value="">Select Industry</option>
+                                            <option value="technology">Technology</option>
+                                            <option value="finance">Finance</option>
+                                            <option value="healthcare">Healthcare</option>
+                                            <option value="education">Education</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Message</label>
+                                        <textarea class="form-control" rows="4" placeholder="Tell us about your partnership interests..."></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">Submit Partnership Request</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>GlobalBridge</h5>
+                    <p class="mb-0">Connecting Arab youth to global opportunities</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
